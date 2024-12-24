@@ -1,6 +1,10 @@
 import { allPosts, Post } from 'contentlayer/generated';
 import { compareDesc, format, parseISO } from 'date-fns';
+import React from 'react';
+import  Hero  from '../components/hero';
 import Link from 'next/link';
+import Footer from '@/components/footer';
+import Header from '@/components/header';
 
 function PostCard(post: Post) {
   return (
@@ -25,10 +29,12 @@ export default function Home() {
 
   return (
     <div className='max-w-xl mx-auto my-8'>
-      <h1 className='text-center'>Next.js + Contentlayer blog</h1>
+      <Header />
+      <Hero />
       {posts.map((post) => (
         <PostCard {...post} key={post._id} />
       ))}
+      <Footer />
     </div>
   );
 }
